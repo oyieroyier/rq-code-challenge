@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './components/Button';
 
-const ButtonContainer = ({ viewAllPhotos, viewFirstPhoto, createNewPhoto }) => {
+const ButtonContainer = ({ viewAllPosts, viewFirstPost, createNewPost }) => {
 	return (
 		<div
 			style={{
@@ -9,9 +9,9 @@ const ButtonContainer = ({ viewAllPhotos, viewFirstPhoto, createNewPhoto }) => {
 				padding: '1rem',
 			}}
 		>
-			<Button label="View All Photos" handleClick={viewAllPhotos} />
-			<Button label="View First Photo" handleClick={viewFirstPhoto} />
-			<Button label="Create New Photo" handleClick={createNewPhoto}/>
+			<Button label="View All Posts" handleClick={viewAllPosts} />
+			<Button label="View First Post" handleClick={viewFirstPost} />
+			<Button label="Create New Post" handleClick={createNewPost} />
 		</div>
 	);
 };

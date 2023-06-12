@@ -9,22 +9,22 @@ import CreatePost from './CreatePost';
 const App = () => {
 	const [currentPage, setCurrentPage] = useState('');
 
-	function viewAllPhotos() {
+	function viewAllPosts() {
 		setCurrentPage(<AllPosts />);
 	}
-	function viewFirstPhoto() {
+	function viewFirstPost() {
 		setCurrentPage(<Post id={1} />);
 	}
-	function createNewPhoto() {
+	function createNewPost() {
 		setCurrentPage(<CreatePost />);
 	}
 
 	return (
 		<div>
 			<ButtonContainer
-				viewAllPhotos={viewAllPhotos}
-				viewFirstPhoto={viewFirstPhoto}
-				createNewPhoto={createNewPhoto}
+				viewAllPosts={viewAllPosts}
+				viewFirstPost={viewFirstPost}
+				createNewPost={createNewPost}
 			/>
 			<DisplayContainer currentPage={currentPage} />
 		</div>
