@@ -1,14 +1,19 @@
 import { useRef } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createPost } from './api/posts';
 
 const CreatePost = () => {
 	const titleRef = useRef();
 	const urlRef = useRef();
 	const thumbnailRef = useRef();
+	const queryClient = useQueryClient();
 
 	const createPostMutation = useMutation({
 		mutationFn: createPost,
+		onSuccess: (data) => {
+			queryClient.setQueryData(['posts', data.id], data);
+			queryClient.invalidateQueries(['posts'], { exact: true });
+		},
 	});
 
 	function handleSubmit(e) {
@@ -30,13 +35,26 @@ const CreatePost = () => {
 					className="feed-form"
 					onSubmit={handleSubmit}
 				>
-					<input name="title" placeholder="title" type="text" ref={titleRef} />
-					<input name="url" placeholder="url" type="text" ref={urlRef} />
+					<input
+						name="title"
+						placeholder="title"
+						type="text"
+						ref={titleRef}
+						required
+					/>
+					<input
+						name="url"
+						placeholder="url"
+						type="text"
+						ref={urlRef}
+						required
+					/>
 					<input
 						name="thumbnail"
 						placeholder="thumbnail url"
 						type="text"
 						ref={thumbnailRef}
+						required
 					/>
 					<button
 						className="button_submit"
