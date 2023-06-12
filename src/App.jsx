@@ -1,10 +1,10 @@
 import React from 'react';
 import ButtonContainer from './ButtonContainer';
-import DisplayContainer from './components/DisplayContainer';
+import DisplayContainer from './DisplayContainer';
 import { useState } from 'react';
-import AllPosts from './components/AllPosts';
-import Post from './components/Post';
-import CreatePost from './components/CreatePost';
+import AllPosts from './AllPosts';
+import Post from './Post';
+import CreatePost from './CreatePost';
 
 const App = () => {
 	const [currentPage, setCurrentPage] = useState('');
